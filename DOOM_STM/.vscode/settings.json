@@ -1,0 +1,6 @@
+{
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "cmake.configureOnOpen": true,
+  "stm32-for-vscode.openOCDPath": false,
+  "stm32-for-vscode.makePath": false
+}

@@ -1,0 +1,3 @@
+C:/Users/vikra/Desktop/embedded/doom_stm/DOOM_STM/build/debug/build/CMakeFiles/DOOM_STM.dir
+C:/Users/vikra/Desktop/embedded/doom_stm/DOOM_STM/build/debug/build/CMakeFiles/edit_cache.dir
+C:/Users/vikra/Desktop/embedded/doom_stm/DOOM_STM/build/debug/build/CMakeFiles/rebuild_cache.dir
