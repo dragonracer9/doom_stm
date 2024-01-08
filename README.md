@@ -8,8 +8,8 @@ Uses the STM CubeIDE and CUBE MX programs to compile and generate hardware speci
 
 ## Roadmap
 
-- get basic syscall functions running ☑️
-- see if doom runs as is? (doesnt, so i will have to fix that...)
--> requires FATfs, not sure about the ipx stuff, will have to rewrite the serial drivers
+- basic button and matrix functionality ☑️
+- get basic syscalls running ☑️
+- see if doom runs as is? (doesnt, so i will have to fix that...) -> requires FATfs, not sure about the ipx stuff, will have to rewrite the serial drivers
 
 - ([threadX](https://github.com/azure-rtos/threadx))
