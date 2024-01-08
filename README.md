@@ -1,6 +1,6 @@
 # doom_stm
 
-A simplistic port of DOOM to stm 32. Runs on a proprietary shield from ETH Zürich.
+A simplistic port of DOOM to stm 32 l47 (using an STM nucleo development board). Runs on a proprietary shield supplied by ETH Zürich.
 
 ## Toolchain
 
