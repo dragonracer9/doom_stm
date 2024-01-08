@@ -31,12 +31,14 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+extern UART_HandleTypeDef huart2;
+extern SPI_HandleTypeDef hspi2;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -57,6 +59,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define BTN_ENTER_Pin GPIO_PIN_0
+#define BTN_ENTER_GPIO_Port GPIOH
+#define BTN_R_Pin GPIO_PIN_1
+#define BTN_R_GPIO_Port GPIOC
+#define MATRIX_PICO_Pin GPIO_PIN_3
+#define MATRIX_PICO_GPIO_Port GPIOC
+#define POTI_Pin GPIO_PIN_4
+#define POTI_GPIO_Port GPIOA
+#define BTN_L_Pin GPIO_PIN_0
+#define BTN_L_GPIO_Port GPIOB
+#define MATRIX_RCK_Pin GPIO_PIN_11
+#define MATRIX_RCK_GPIO_Port GPIOB
+#define MATRIX_SCK_Pin GPIO_PIN_13
+#define MATRIX_SCK_GPIO_Port GPIOB
 #define LED2_Pin GPIO_PIN_7
 #define LED2_GPIO_Port GPIOC
 #define LED1_Pin GPIO_PIN_6

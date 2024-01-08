@@ -4,6 +4,9 @@
   "stm32-for-vscode.openOCDPath": false,
   "stm32-for-vscode.makePath": false,
   "files.associations": {
-    "DOOMNET.C": "cpp"
+    "DOOMNET.C": "cpp",
+    "stdbool.h": "c",
+    "stm32l4xx_hal.h": "c",
+    "stdio.h": "c"
   }
 }

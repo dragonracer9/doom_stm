@@ -78,6 +78,160 @@ void HAL_MspInit(void)
 }
 
 /**
+* @brief ADC MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hadc: ADC handle pointer
+* @retval None
+*/
+void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+  if(hadc->Instance==ADC1)
+  {
+  /* USER CODE BEGIN ADC1_MspInit 0 */
+
+  /* USER CODE END ADC1_MspInit 0 */
+
+  /** Initializes the peripherals clock
+  */
+    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+    PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_PLLSAI1;
+    PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_MSI;
+    PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
+    PeriphClkInit.PLLSAI1.PLLSAI1N = 16;
+    PeriphClkInit.PLLSAI1.PLLSAI1P = RCC_PLLP_DIV7;
+    PeriphClkInit.PLLSAI1.PLLSAI1Q = RCC_PLLQ_DIV2;
+    PeriphClkInit.PLLSAI1.PLLSAI1R = RCC_PLLR_DIV2;
+    PeriphClkInit.PLLSAI1.PLLSAI1ClockOut = RCC_PLLSAI1_ADC1CLK;
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    /* Peripheral clock enable */
+    __HAL_RCC_ADC_CLK_ENABLE();
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    /**ADC1 GPIO Configuration
+    PA4     ------> ADC1_IN9
+    */
+    GPIO_InitStruct.Pin = POTI_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(POTI_GPIO_Port, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN ADC1_MspInit 1 */
+
+  /* USER CODE END ADC1_MspInit 1 */
+  }
+
+}
+
+/**
+* @brief ADC MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hadc: ADC handle pointer
+* @retval None
+*/
+void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
+{
+  if(hadc->Instance==ADC1)
+  {
+  /* USER CODE BEGIN ADC1_MspDeInit 0 */
+
+  /* USER CODE END ADC1_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_ADC_CLK_DISABLE();
+
+    /**ADC1 GPIO Configuration
+    PA4     ------> ADC1_IN9
+    */
+    HAL_GPIO_DeInit(POTI_GPIO_Port, POTI_Pin);
+
+  /* USER CODE BEGIN ADC1_MspDeInit 1 */
+
+  /* USER CODE END ADC1_MspDeInit 1 */
+  }
+
+}
+
+/**
+* @brief SPI MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hspi: SPI handle pointer
+* @retval None
+*/
+void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(hspi->Instance==SPI2)
+  {
+  /* USER CODE BEGIN SPI2_MspInit 0 */
+
+  /* USER CODE END SPI2_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_SPI2_CLK_ENABLE();
+
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /**SPI2 GPIO Configuration
+    PC3     ------> SPI2_MOSI
+    PB13     ------> SPI2_SCK
+    */
+    GPIO_InitStruct.Pin = MATRIX_PICO_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+    HAL_GPIO_Init(MATRIX_PICO_GPIO_Port, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = MATRIX_SCK_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+    HAL_GPIO_Init(MATRIX_SCK_GPIO_Port, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN SPI2_MspInit 1 */
+
+  /* USER CODE END SPI2_MspInit 1 */
+  }
+
+}
+
+/**
+* @brief SPI MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hspi: SPI handle pointer
+* @retval None
+*/
+void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
+{
+  if(hspi->Instance==SPI2)
+  {
+  /* USER CODE BEGIN SPI2_MspDeInit 0 */
+
+  /* USER CODE END SPI2_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_SPI2_CLK_DISABLE();
+
+    /**SPI2 GPIO Configuration
+    PC3     ------> SPI2_MOSI
+    PB13     ------> SPI2_SCK
+    */
+    HAL_GPIO_DeInit(MATRIX_PICO_GPIO_Port, MATRIX_PICO_Pin);
+
+    HAL_GPIO_DeInit(MATRIX_SCK_GPIO_Port, MATRIX_SCK_Pin);
+
+  /* USER CODE BEGIN SPI2_MspDeInit 1 */
+
+  /* USER CODE END SPI2_MspDeInit 1 */
+  }
+
+}
+
+/**
 * @brief UART MSP Initialization
 * This function configures the hardware resources used in this example
 * @param huart: UART handle pointer
