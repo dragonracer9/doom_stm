@@ -10,4 +10,4 @@ Uses the STM CubeIDE and CUBE MX programs to compile and generate hardware speci
 
 - get basic syscall functions running ☑️
 - see if doom runs as is? (doesnt, so i will have to fix that...)
-- try sticking this on an RTOS (why not) ([https://github.com/azure-rtos/threadx](threadX)]
+- try sticking this on an RTOS (why not) ([threadX](https://github.com/azure-rtos/threadx)]
