@@ -72,6 +72,7 @@ target_link_options(
 
 target_sources(
     ${TARGET_NAME} PRIVATE
+    "Core\\Src\\barchart.c"
     "Core\\Src\\main.c"
     "Core\\Src\\stm32l4xx_hal_msp.c"
     "Core\\Src\\stm32l4xx_it.c"
@@ -172,6 +173,7 @@ target_sources(
     "DOOM-master\\DOOM-master\\sndserv\\sounds.c"
     "DOOM-master\\DOOM-master\\sndserv\\soundsrv.c"
     "DOOM-master\\DOOM-master\\sndserv\\wadread.c"
+    "test\\src\\matrix.c"
 )
 
 add_custom_command(
